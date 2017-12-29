@@ -1,0 +1,73 @@
+
+
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+			<h1 class="">Crea o Actualiza un Curso</h1>
+		</div>
+		<div class="input-field col s6">
+			<input id="nombre" type="text" class="validate" [(ngModel)]="curso.nombre" placeholder="Nombre del Curso">
+		</div>
+		<div class="input-field col s6">
+			<select materialize="material_select" [materializeSelectOptions]="selectOptions" [(ngModel)]="curso.categoria">
+				<option disabled>Area de conocimiento</option>
+				<option *ngFor="let area of areas" [value]="area.name">{{area.name}}</option>
+			</select>
+		</div>
+		<div class="input-field col s12">
+			<textarea id="descripcion" class="materialize-textarea" [(ngModel)]="curso.descripcion" placeholder="Descripción"></textarea>
+		</div>
+		<div class="input-field col s12">
+			<textarea id="horario" class="materialize-textarea" [(ngModel)]="curso.horario" placeholder="Horario"></textarea>
+		</div>
+		<div class="input-field col s6">
+			<input id="horas" type="number" class="validate" [(ngModel)]="curso.horas" placeholder="Número de horas">
+		</div>
+		<div class="input-field col s6">
+			<input id="costo" type="number" class="validate" [(ngModel)]="curso.costo" placeholder="Costo del curso">
+		</div>
+		<div class="input-field col s6">
+			<input formcontrolname="fromDate" id="fecha_inicio" materialize="pickadate" name="fecha_inicio" type="text" class="ng-pristine ng-valid picker__input ng-touched picker__input--active" readonly="" tabindex="12" aria-haspopup="true" aria-expanded="true" aria-readonly="false" aria-owns="fecha_inicio_root" [(ngModel)]="curso.fechaInicio" placeholder="Fecha de inicio">
+		</div>
+		<div class="input-field col s6">
+			<input formcontrolname="fromDate" id="fecha_fin" materialize="pickadate" name="fecha_fin" type="text" class="ng-pristine ng-valid picker__input ng-touched picker__input--active" readonly="" tabindex="12" aria-haspopup="true" aria-expanded="true" aria-readonly="false" aria-owns="fecha_fin_root" [(ngModel)]="curso.fechafin" placeholder="Fecha de fin">
+		</div>
+		<div class="input-field col s12">
+			<input id="horas" type="text" class="validate" [(ngModel)]="curso.contenido" placeholder="Contenido">
+		</div>
+		<div class="col s12 file-field input-field">
+			<div class="btn">
+				<span>Buscar Imégen</span>
+				<input type="file">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text">
+			</div>
+		</div>
+		<div class="col s6">
+			<div class="switch">
+				<label>
+					Curso Inactivo
+					<input type="checkbox" [(ngModel)]="curso.activo">
+					<span class="lever"></span>
+					Curso Activo
+				</label>
+			</div>
+		</div>
+		<div class="col s6">
+			<div class="switch">
+				<label>
+					No mostrar en Populares
+					<input type="checkbox" [(ngModel)]="curso.popular">
+					<span class="lever"></span>
+					Mostrar en Populares
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s12">
+			<a class="btn" (click)="guardarCurso()">Guardar</a>	
+		</div>
+	</div>
+</div>

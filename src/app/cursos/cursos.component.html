@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<div class="col s12">
+			<h1>
+				Bienvenido
+			</h1>
+			<h4>
+				Lista de Cursos
+			</h4>
+		</div>
+		<div class="col s12">
+			<a class="btn" routerLink="/crear/new">
+				Crear Nuevo Curso
+			</a>
+		</div>
+		<div class="col s12">
+			<div class="collection">
+				<ng-container *ngFor="let curso of cursos">
+					<a routerLink="/crear/{{curso.id}}" class="collection-item">
+						<span class="badge">1</span> {{curso.nombre}}
+					</a>
+				</ng-container>
+			</div>
+		</div>
+	</div>
+</div>
