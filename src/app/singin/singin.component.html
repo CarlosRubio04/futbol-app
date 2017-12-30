@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row">
+		<div class="card blue-grey darken-1">
+			
+			<div class="input-field col s12">
+				<input id="email" type="email" class="validate" [(ngModel)]="registro.email">
+				<label for="email">Email</label>
+			</div>
+			<div class="input-field col s12">
+				<input id="password" type="password" class="validate" [(ngModel)]="registro.password">
+				<label for="password">Contraseña</label>
+			</div>
+			<div class="col s12">
+				<button class="btn" (click)="registrar()">Registrar</button>
+			</div>
+
+		</div>
+	</div>
+</div>

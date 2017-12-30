@@ -15,14 +15,20 @@ import { DetalleComponent } from './detalle/detalle.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { CrearComponent } from './crear/crear.component';
 import { CursosService } from './services/cursos.service';
+import { AutorizacionService } from './services/autorizacion.service';
+import { MyGuard } from './services/my-guard.service.guard';
+import { LoginComponent } from './login/login.component';
+import { SinginComponent } from './singin/singin.component';
 
 
 
 const appRoutes: Routes = [
-  {path: '', component: CursosComponent},
-  {path: 'cursos', component: CursosComponent},
-  {path: 'detalle/:id', component: DetalleComponent},
-  {path: 'crear/:id', component: CrearComponent}
+  {path: '', component: LoginComponent},
+  {path: 'cursos', component: CursosComponent, canActivate:[MyGuard]},
+  {path: 'detalle/:id', component: DetalleComponent, canActivate:[MyGuard]},
+  {path: 'crear/:id', component: CrearComponent, canActivate:[MyGuard]},
+  {path: 'login', component: LoginComponent},
+  {path: 'singin', component: SinginComponent}
 ];
 
 
@@ -40,7 +46,9 @@ export const firebaseConfig = {
     AppComponent,
     DetalleComponent,
     CursosComponent,
-    CrearComponent
+    CrearComponent,
+    LoginComponent,
+    SinginComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +63,7 @@ export const firebaseConfig = {
     AngularFireAuthModule,
     HttpModule
   ],
-  providers: [CursosService],
+  providers: [CursosService, AutorizacionService, MyGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
