@@ -15,7 +15,7 @@ export class AutorizacionService {
 			.then((response) => {
 				// alert('Usuario Logeado');
 				// console.log(response);
-				this.router.navigate(['/']);
+				this.router.navigate(['cursos']);
 			})
 			.catch((error)=> {
 				alert('Error');
@@ -27,7 +27,7 @@ export class AutorizacionService {
 			.then((response) => {
 				// alert('Usuario Registrado');
 				// console.log(response);
-				this.router.navigate(['/']);
+				this.router.navigate(['cursos']);
 			})
 			.catch((error)=> {
 				alert('Error');
