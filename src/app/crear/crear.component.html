@@ -33,7 +33,15 @@
 			<input formcontrolname="fromDate" id="fecha_fin" materialize="pickadate" name="fecha_fin" type="text" class="ng-pristine ng-valid picker__input ng-touched picker__input--active" readonly="" tabindex="12" aria-haspopup="true" aria-expanded="true" aria-readonly="false" aria-owns="fecha_fin_root" [(ngModel)]="curso.fechafin" placeholder="Fecha de fin">
 		</div>
 		<div class="input-field col s12">
-			<input id="horas" type="text" class="validate" [(ngModel)]="curso.contenido" placeholder="Contenido">
+			
+			<div class="collection">
+				<div class="collection-item" *ngFor="let item of items">
+					<span class="badge"><button class="btn" (click)="removeItem(item)">Delete</button></span>
+					{{item.item}}
+				</div>
+			</div>
+			<input #item placeholder="Agregar Item" />
+			<button class="btn" (click)="addItem(item.value)">Agregar</button>
 		</div>
 		<div class="col s12 file-field input-field">
 			<div class="btn">
@@ -41,7 +49,8 @@
 				<input type="file">
 			</div>
 			<div class="file-path-wrapper">
-				<input class="file-path validate" type="text">
+				<!-- <input class="file-path validate" type="text"> -->
+				
 			</div>
 		</div>
 		<div class="col s6">

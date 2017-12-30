@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CursosService } from '../services/cursos.service';
+import { Item } from './contenido.component';
 import { ActivatedRoute } from "@angular/router";
 
 declare var jquery:any;
@@ -15,9 +16,10 @@ export class CrearComponent {
 	areas = null;
 
 	// Input Contenido
-	contenido:any = {};
+	items: Array<Item>;
 
 	constructor(private cursosService: CursosService, private route: ActivatedRoute,){
+		this.items = [];
 		this.areas = cursosService.getAreas();
 		this.id= this.route.snapshot.params['id'];
 		if(this.id != 'new'){
@@ -26,16 +28,28 @@ export class CrearComponent {
 			});
 		}
 	}
+
+	addItem(item){
+		let obj = new Item(item);
+		this.items.push(obj);
+	}
+
+	removeItem(item){
+		let index = this.items.indexOf(item);
+		this.items.splice(index,1);
+	}
+
 	guardarCurso() {
-			if(this.id != 'new'){
-				this.cursosService.editarCurso(this.curso);
-				alert('breve');
-			}else {
-				this.curso.id = Date.now();
-				this.cursosService.guardarCurso(this.curso);
-				alert('Negocio Socio');
-			}
-			
-			this.curso = {};
-		};
+		if(this.id != 'new'){
+			this.cursosService.editarCurso(this.curso);
+			alert('breve');
+		}else {
+			this.curso.id = Date.now();
+			this.curso.contenido = this.items;
+			this.cursosService.guardarCurso(this.curso);
+			alert('Negocio Socio');
+		}
+
+		this.curso = {};
+	};
 }
