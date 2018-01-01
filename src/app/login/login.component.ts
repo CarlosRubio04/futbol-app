@@ -8,7 +8,24 @@ import { AutorizacionService } from '../services/autorizacion.service'
 })
 export class LoginComponent {
 	loginParams:any = {};
+  loggedIn = false;
+  loggedUser:any = null;
   constructor(private autorizacionService:AutorizacionService) { 
+
+    this.autorizacionService.isLogged()
+      .subscribe((result)=>{
+        if(result && result.uid) {
+          this.loggedIn = true;
+          setTimeout(()=> {
+            this.loggedUser = this.autorizacionService.getUser().currentUser.email;
+            // console.log(this.loggedUser);
+          }, 500);
+        }else {
+          this.loggedIn = false;
+        }
+      }, (error)=>{
+        this.loggedIn = false;
+      })
   	
   }
 

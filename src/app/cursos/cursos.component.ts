@@ -3,7 +3,8 @@ import { CursosService } from '../services/cursos.service'
 
 @Component({
   selector: 'app-root',
-  templateUrl: './cursos.component.html'
+  templateUrl: './cursos.component.html',
+  styleUrls: ['./cursos.component.css']
 })
 export class CursosComponent {
 	title = 'Administrador';

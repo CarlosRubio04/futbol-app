@@ -6,7 +6,7 @@ import { AutorizacionService } from './autorizacion.service';
 @Injectable()
 export class MyGuard implements CanActivate {
   loggedIn = false;
-	constructor(private private autorizacionService:AutorizacionService){
+	constructor(private autorizacionService:AutorizacionService){
 		this.autorizacionService.isLogged()
 			.subscribe((result)=>{
 				if(result && result.uid) {

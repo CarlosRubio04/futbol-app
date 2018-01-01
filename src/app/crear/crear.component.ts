@@ -8,7 +8,8 @@ declare var $:any;
 
 @Component({
 	selector: 'app-crear',
-	templateUrl: './crear.component.html'
+	templateUrl: './crear.component.html',
+	styleUrls: ['./crear.component.css']
 })
 export class CrearComponent {
 	curso:any = {};

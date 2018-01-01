@@ -1,0 +1,22 @@
+.boxItem {
+	width: 250px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+.boxItem h4 {
+	text-align: center;
+	font-size: 1.4em;
+	color: #e8eaf6;
+	font-weight: 100;
+}
+.home {
+	width: 100%;
+	height: calc(100vh - 63px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

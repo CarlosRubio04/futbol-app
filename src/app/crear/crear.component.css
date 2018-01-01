@@ -1,0 +1,21 @@
+.crear {
+	padding: 2em 0;
+}
+
+input, textarea{
+	border-bottom: 1px solid #7986cb !important;
+}
+.select-wrapper input.select-dropdown{
+	border-bottom: 1px solid #7986cb !important;
+}
+.collection {
+    margin: .5rem 0 1rem 0;
+    border: 0px solid #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+.collection .collection-item {
+	line-height: 2.5rem;
+	background-color: #c5cae9;
+}
