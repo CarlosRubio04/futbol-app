@@ -4,91 +4,125 @@
 			<div class="col s12">
 				<h4 class="center-align">Crea o Actualiza un Curso</h4>
 			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<p>Tipo de Curso</p>
+					<select materialize="material_select" [materializeSelectOptions]="selectOptions" [(ngModel)]="curso.tipoCurso">
+						<option disabled>Tipo de Curso</option>
+						<option value="Diplomado Presencial">
+							Diplomado Presencial
+						</option>
+						<option value="Diplomado Virtual">
+							Diplomado Virtual
+						</option>
+						<option value="Curso Presencial">
+							Curso Presencial
+						</option>
+						<option value="Curso Virtual">
+							Curso Virtual
+						</option>
+						<option value="Programa Profesional">
+							Programa Profesional
+						</option>
+					</select>
+				</div>
+			</div>
 			<div class="input-field col s6">
+				<p>Nombre del Curso</p>
 				<input id="nombre" type="text" class="validate" [(ngModel)]="curso.nombre" placeholder="Nombre del Curso">
 			</div>
 			<div class="input-field col s6">
-				<select materialize="material_select" [materializeSelectOptions]="selectOptions" [(ngModel)]="curso.categoria">
+				<p>Area del Curso</p>
+				<select materialize="material_select" [materializeSelectOptions]="selectOptions" [(ngModel)]="curso.categoria" (change)="onChange($event.target.value)">
 					<option disabled>Area de conocimiento</option>
-					<option *ngFor="let area of areas" [value]="area.name">{{area.name}}</option>
+					<option *ngFor="let area of areas" [value]="area.id">{{area.name}}</option>
 				</select>
 			</div>
 			<div class="input-field col s12">
+				<p>Descripción</p>
 				<textarea id="descripcion" class="materialize-textarea" [(ngModel)]="curso.descripcion" placeholder="Descripción"></textarea>
 			</div>
 			<div class="input-field col s12 m6">
+				<p>Horario</p>
 				<input type="text" id="horario" class="materialize-textarea" [(ngModel)]="curso.horario" placeholder="Horario">
 			</div>
 			<div class="input-field col s12 m3">
+				<p>Horas</p>
 				<input id="horas" type="number" class="validate" [(ngModel)]="curso.horas" placeholder="Número de horas">
 			</div>
 			<div class="input-field col s12 m3">
+				<p>Costo del curso</p>
 				<input id="costo" type="number" class="validate" [(ngModel)]="curso.costo" placeholder="Costo del curso">
 			</div>
 			<div class="input-field col s6">
+				<p>Fecha de inicio</p>
 				<input formcontrolname="fromDate" id="fecha_inicio" materialize="pickadate" name="fecha_inicio" type="text" class="ng-pristine ng-valid picker__input ng-touched picker__input--active" readonly="" tabindex="12" aria-haspopup="true" aria-expanded="true" aria-readonly="false" aria-owns="fecha_inicio_root" [(ngModel)]="curso.fechaInicio" placeholder="Fecha de inicio">
 			</div>
 			<div class="input-field col s6">
+				<p>Fecha de culminación</p>
 				<input formcontrolname="fromDate" id="fecha_fin" materialize="pickadate" name="fecha_fin" type="text" class="ng-pristine ng-valid picker__input ng-touched picker__input--active" readonly="" tabindex="12" aria-haspopup="true" aria-expanded="true" aria-readonly="false" aria-owns="fecha_fin_root" [(ngModel)]="curso.fechafin" placeholder="Fecha de fin">
 			</div>
 			<div class="input-field col s12">
-
+				<p>Contenido del curso</p>
 				<div class="collection">
 					<div class="collection-item" *ngFor="let item of items">
 						<span class="badge">
 							<a class="btn-floating btn-tiny waves-effect waves-light red" (click)="removeItem(item)">
 								<i class="material-icons">close</i></a>
-						</span>
-						{{item.item}}
+							</span>
+							{{item.item}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col s12 m10">
+							<input #item placeholder="Agregar Item" />
+						</div>
+						<div class="col s12 m2">
+							<button class="btn indigo accent-3" (click)="addItem(item.value)">Agregar</button>
+						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col s12 m10">
-						<input #item placeholder="Agregar Item" />
+				<div class="col s12 file-field input-field">
+					<p>Nombre de la imagen del curso</p>
+					<small>Primero cargue la imágen, posteriormente copie el nombre del archivo y complete el formulario con este dato.</small>
+					<div class="row">
+						<div class="col s12 m10">
+							<input id="img" type="text" class="validate" [(ngModel)]="curso.img" placeholder="Nombre del archivo">
+						</div>
+						<div class="col s12 m2">
+							<a href="/upload" target="_blank" class="btn indigo accent-3">
+								Cargar
+							</a>
+						</div>
 					</div>
-					<div class="col s12 m2">
-						<button class="btn indigo accent-3" (click)="addItem(item.value)">Agregar</button>
+				</div>
+				<div class="col s4">
+					<p>Estado del curso (ocultar o mostrar)</p>
+					<div class="switch">
+						<label>
+							Curso Inactivo
+							<input type="checkbox" [(ngModel)]="curso.activo">
+							<span class="lever"></span>
+							Curso Activo
+						</label>
+					</div>
+				</div>
+				<div class="col s6">
+					<p>Agregar el curso a los destacados del Inicio</p>
+					<div class="switch">
+						<label>
+							No mostrar en Populares
+							<input type="checkbox" [(ngModel)]="curso.popular">
+							<span class="lever"></span>
+							Mostrar en Populares
+						</label>
 					</div>
 				</div>
 			</div>
-			<div class="col s12 file-field input-field">
-				<small>Primero cargue la imágen, posteriormente copie el nombre del archivo y complete el formulario con este dato.</small>
-				<div class="row">
-					<div class="col s12 m10">
-						<input id="img" type="text" class="validate" [(ngModel)]="curso.img" placeholder="Nombre del archivo">
-					</div>
-					<div class="col s12 m2">
-						<a href="/upload" target="_blank" class="btn indigo accent-3">
-							Cargar
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col s6">
-				<div class="switch">
-					<label>
-						Curso Inactivo
-						<input type="checkbox" [(ngModel)]="curso.activo">
-						<span class="lever"></span>
-						Curso Activo
-					</label>
-				</div>
-			</div>
-			<div class="col s6">
-				<div class="switch">
-					<label>
-						No mostrar en Populares
-						<input type="checkbox" [(ngModel)]="curso.popular">
-						<span class="lever"></span>
-						Mostrar en Populares
-					</label>
+			<div class="row">
+				<div class="col s12">
+					<a class="btn indigo accent-3" (click)="guardarCurso()">Guardar</a>	
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col s12">
-				<a class="btn indigo accent-3" (click)="guardarCurso()">Guardar</a>	
-			</div>
-		</div>
-	</div>
-</section>
+	</section>

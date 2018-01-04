@@ -5,24 +5,24 @@ import {Http} from "@angular/http"
 
 export class CursosService{
 	areas:any = [
-        {name: 'Ciencias Economicas y Administrativas', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Ciencias Juridicas', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Ciencias', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Medicina', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Enfermeria', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Odontología', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Psicología', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Arquitectura y Diseño', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Estudios Ambientales y Rurales', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Ingenieria', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Artes', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Educacción', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Filosofia', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Ciencias Polícas y Relaciones Internacionales', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Instituto Derechos Humanos', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Ciencias Sociales', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Comunicación y Lenguaje', img: 'http://via.placeholder.com/600x600'},
-        {name: 'Teología', img: 'http://via.placeholder.com/600x600'}
+        {id: 1, name: 'Ciencias Economicas y Administrativas', img: 'http://via.placeholder.com/600x600', color: 'amarillo'},
+        {id: 2, name: 'Ciencias Juridicas', img: 'http://via.placeholder.com/600x600', color: 'amarillo'},
+        {id: 3, name: 'Ciencias', img: 'http://via.placeholder.com/600x600', color: 'azul'},
+        {id: 4, name: 'Medicina', img: 'http://via.placeholder.com/600x600', color: 'azul'},
+        {id: 5, name: 'Enfermeria', img: 'http://via.placeholder.com/600x600', color: 'azul'},
+        {id: 6, name: 'Odontología', img: 'http://via.placeholder.com/600x600', color: 'azul'},
+        {id: 7, name: 'Psicología', img: 'http://via.placeholder.com/600x600', color: 'azul'},
+        {id: 8, name: 'Arquitectura y Diseño', img: 'http://via.placeholder.com/600x600', color: 'verde'},
+        {id: 9, name: 'Estudios Ambientales y Rurales', img: 'http://via.placeholder.com/600x600', color: 'verde'},
+        {id: 10, name: 'Ingenieria', img: 'http://via.placeholder.com/600x600', color: 'verde'},
+        {id: 11, name: 'Artes', img: 'http://via.placeholder.com/600x600', color: 'morado'},
+        {id: 12, name: 'Educacción', img: 'http://via.placeholder.com/600x600', color: 'morado'},
+        {id: 13, name: 'Filosofia', img: 'http://via.placeholder.com/600x600', color: 'morado'},
+        {id: 14, name: 'Ciencias Polícas y Relaciones Internacionales', img: 'http://via.placeholder.com/600x600', color: 'rojo'},
+        {id: 15, name: 'Instituto Derechos Humanos', img: 'http://via.placeholder.com/600x600', color: 'rojo'},
+        {id: 16, name: 'Ciencias Sociales', img: 'http://via.placeholder.com/600x600', color: 'rojo'},
+        {id: 17, name: 'Comunicación y Lenguaje', img: 'http://via.placeholder.com/600x600', color: 'rojo'},
+        {id: 18, name: 'Teología', img: 'http://via.placeholder.com/600x600', color: 'rojo'}
     ];
 
     cursos:any = [];
