@@ -1,4 +1,4 @@
-# Platzisquare
+# Administrador de contenido educacion continua universidad Javeriana
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
