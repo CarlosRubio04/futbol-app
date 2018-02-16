@@ -17,6 +17,7 @@ export class CrearComponent {
 	id:any  = null;
 	areas = null;
 	area:any = null;
+	status:boolean = false;
 	// Input Contenido
 	items: Array<Item>;
 
@@ -24,10 +25,12 @@ export class CrearComponent {
 		this.items = [];
 		this.areas = cursosService.getAreas();
 		this.id= this.route.snapshot.params['id'];
+		
 		if(this.id != 'new'){
 			this.cursosService.getCurso(this.id).valueChanges().subscribe((curso)=>{
 				this.curso = curso;
 				this.items = this.curso.contenido;
+				this.status = true;
 			});
 		}
 
@@ -53,7 +56,7 @@ export class CrearComponent {
 			alert('Curso Actualizado Correctamente');
 			this.router.navigate(['cursos']);
 		}else {
-			this.curso.id = Date.now();
+			//this.curso.id = Date.now();
 			this.curso.contenido = this.items;
 			this.curso.area = this.area;
 			this.cursosService.guardarCurso(this.curso);

@@ -19,3 +19,9 @@ input, textarea{
 	line-height: 2.5rem;
 	background-color: #c5cae9;
 }
+.active {
+	display: block;
+}
+.inactive{
+	display: none;
+}

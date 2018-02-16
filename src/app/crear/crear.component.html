@@ -5,7 +5,7 @@
 				<h4 class="center-align">Crea o Actualiza un Curso</h4>
 			</div>
 			<div class="row">
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<p>Tipo de Curso</p>
 					<select materialize="material_select" [materializeSelectOptions]="selectOptions" [(ngModel)]="curso.tipoCurso">
 						<option disabled>Tipo de Curso</option>
@@ -26,16 +26,20 @@
 						</option>
 					</select>
 				</div>
-				<div class="input-field col s6">
+				<div class="input-field col s12 m6">
 					<p>Número de extensión</p>
 					<input id="extension" type="number" class="validate" [(ngModel)]="curso.extension" placeholder="Número de extensión">
 				</div>
+				<div class="input-field col s12" [ngClass]="status ? 'inactive' : 'active'">
+					<p>Configuración de la Url</p>
+					<input id="url" type="text" class="validate" [(ngModel)]="curso.id" placeholder="Configuración de la Url">
+				</div>
 			</div>
-			<div class="input-field col s6">
+			<div class="input-field col s12 m6">
 				<p>Nombre del Curso</p>
 				<input id="nombre" type="text" class="validate" [(ngModel)]="curso.nombre" placeholder="Nombre del Curso">
 			</div>
-			<div class="input-field col s6">
+			<div class="input-field col s12 m6">
 				<p>Area del Curso</p>
 				<select materialize="material_select" [materializeSelectOptions]="selectOptions" [(ngModel)]="curso.categoria" (change)="onChange($event.target.value)">
 					<option disabled>Area de conocimiento</option>
@@ -58,11 +62,11 @@
 				<p>Costo del curso</p>
 				<input id="costo" type="number" class="validate" [(ngModel)]="curso.costo" placeholder="Costo del curso">
 			</div>
-			<div class="input-field col s6">
+			<div class="input-field col s12 m6">
 				<p>Fecha de inicio</p>
 				<input formcontrolname="fromDate" id="fecha_inicio" materialize="pickadate" name="fecha_inicio" type="text" class="ng-pristine ng-valid picker__input ng-touched picker__input--active" readonly="" tabindex="12" aria-haspopup="true" aria-expanded="true" aria-readonly="false" aria-owns="fecha_inicio_root" [(ngModel)]="curso.fechaInicio" placeholder="Fecha de inicio">
 			</div>
-			<div class="input-field col s6">
+			<div class="input-field col s12 m6">
 				<p>Fecha de culminación</p>
 				<input formcontrolname="fromDate" id="fecha_fin" materialize="pickadate" name="fecha_fin" type="text" class="ng-pristine ng-valid picker__input ng-touched picker__input--active" readonly="" tabindex="12" aria-haspopup="true" aria-expanded="true" aria-readonly="false" aria-owns="fecha_fin_root" [(ngModel)]="curso.fechafin" placeholder="Fecha de fin">
 			</div>
@@ -100,7 +104,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col s4">
+				<div class="col s12 m4">
 					<p>Estado del curso (ocultar o mostrar)</p>
 					<div class="switch">
 						<label>
@@ -111,7 +115,7 @@
 						</label>
 					</div>
 				</div>
-				<div class="col s6">
+				<div class="col s12 m6">
 					<p>Agregar el curso a los destacados del Inicio</p>
 					<div class="switch">
 						<label>

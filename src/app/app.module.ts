@@ -23,7 +23,7 @@ import { SinginComponent } from './singin/singin.component';
 
 
 const appRoutes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'cursos', component: CursosComponent, canActivate:[MyGuard]},
   {path: 'detalle/:id', component: DetalleComponent, canActivate:[MyGuard]},
   {path: 'crear/:id', component: CrearComponent, canActivate:[MyGuard]},
