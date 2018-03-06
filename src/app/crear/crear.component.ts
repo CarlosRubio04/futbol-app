@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CursosService } from '../services/cursos.service';
-import { Item } from './contenido.component';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from "@angular/router";
 
@@ -13,18 +12,22 @@ declare var $:any;
 	styleUrls: ['./crear.component.css']
 })
 export class CrearComponent {
+	selectOptions:any;
+
 	curso:any = {};
 	id:any  = null;
 	areas = null;
 	area:any = null;
 	status:boolean = false;
 	// Input Contenido
-	items: Array<Item>;
+	items: Array<string>;
 
 	constructor(private cursosService: CursosService, private route: ActivatedRoute, private router:Router){
 		this.items = [];
 		this.areas = cursosService.getAreas();
 		this.id= this.route.snapshot.params['id'];
+
+		console.log(this.items);
 		
 		if(this.id != 'new'){
 			this.cursosService.getCurso(this.id).valueChanges().subscribe((curso)=>{
@@ -41,8 +44,9 @@ export class CrearComponent {
 	}
 
 	addItem(item){
-		let obj = new Item(item);
+		let obj:string = item;
 		this.items.push(obj);
+		console.log(obj);
 	}
 
 	removeItem(item){
