@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterializeModule } from 'angular2-materialize';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
@@ -11,44 +10,45 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { HttpModule} from "@angular/http";
 
 
-import { DetalleComponent } from './detalle/detalle.component';
-import { CursosComponent } from './cursos/cursos.component';
-import { CrearComponent } from './crear/crear.component';
-import { CursosService } from './services/cursos.service';
+import { AppService } from './services/app.service';
 import { AutorizacionService } from './services/autorizacion.service';
 import { MyGuard } from './services/my-guard.service.guard';
 import { LoginComponent } from './login/login.component';
 import { SinginComponent } from './singin/singin.component';
+import { HomeComponent } from './home/home.component';
+import { GameComponent } from './game/game.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'cursos', component: CursosComponent, canActivate:[MyGuard]},
-  {path: 'detalle/:id', component: DetalleComponent, canActivate:[MyGuard]},
-  {path: 'crear/:id', component: CrearComponent, canActivate:[MyGuard]},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'jugar', component: GameComponent},
+  {path: 'perfil', component: ProfileComponent, canActivate:[MyGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'singin', component: SinginComponent}
 ];
 
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyA-jrqOaA_Wam3dzGcbi5ZosOaQOYY6YLY",
-    authDomain: "javerianaeducacioncontinua.firebaseapp.com",
-    databaseURL: "https://javerianaeducacioncontinua.firebaseio.com",
-    storageBucket: "javerianaeducacioncontinua.appspot.com",
-    messagingSenderId: "57552902261"
+    apiKey: "AIzaSyBFkEVrX8MvWFdFvoitrY8dLwe9nr5txoY",
+    authDomain: "futbol-app-5f228.firebaseapp.com",
+    databaseURL: "https://futbol-app-5f228.firebaseio.com",
+    projectId: "futbol-app-5f228",
+    storageBucket: "futbol-app-5f228.appspot.com",
+    messagingSenderId: "166693050149"
 };
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetalleComponent,
-    CursosComponent,
-    CrearComponent,
     LoginComponent,
-    SinginComponent
+    SinginComponent,
+    HomeComponent,
+    GameComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -57,13 +57,12 @@ export const firebaseConfig = {
       apiKey: 'AIzaSyDB0b8fTn46DLYVqbt52mz6U6KZK0xbA6U'
     }),
     RouterModule.forRoot(appRoutes),
-    MaterializeModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     HttpModule
   ],
-  providers: [CursosService, AutorizacionService, MyGuard],
+  providers: [AppService, AutorizacionService, MyGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

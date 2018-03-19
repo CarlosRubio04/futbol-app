@@ -1,0 +1,40 @@
+<section class="Hero">
+	<div class="HeroCont">
+		<div class="cta-login" *ngIf="!loggedIn">
+			<h1>Conectate y empieza</h1>
+			<button class="btn blue" (click)="facebookLogin()">Login Con Facebook</button>
+		</div>
+		<div class="cta-login" *ngIf="loggedIn">
+			<h1>Empiza a Jugar</h1>
+			<button class="btn blue" routerLink="/jugar">¡Vamos!</button>
+		</div>
+	</div>
+</section>
+
+<section class="Explain">
+	<div class="container">
+		<div class="row">
+			<div class="col m12">
+				<h2 class="tittle">¿Como empezar a ganar?</h2>
+			</div>
+			<div class="col s12 m4 step">
+				<span>1</span>
+				<img src="./assets/login.svg" alt="Login" class="img-fluid">
+				<p>Inicia Sesión o registrate con tu facebook, facil, rapido y sin formularios, todos los premios empiezan acá</p>
+				<button type="button" class="btn login waves" (click)="facebookLogin()">Conéctate con Facebook</button>
+			</div>
+			<div class="col s12 m4 step">
+				<span>2</span>
+				<img src="./assets/empieza.svg" alt="empezar" class="img-fluid">
+				<p>Mira el listado de los proximos partidos, apoya a tus equipos favoritos y gana grandes premios</p>
+				<button type="button" class="btn login waves" routerLink="/jugar">Mira el listado de partidos</button>
+			</div>
+			<div class="col s12 m4 step">
+				<span>3</span>
+				<img src="./assets/redime.svg" alt="redime" class="img-fluid">
+				<p>Si aciertas a los resultados, mirar los premios disponibles y redimelos, entre más puntos, mejores premios</p>
+				<button type="button" class="btn login waves">Reclama tus premios</button>
+			</div>
+		</div>
+	</div>
+</section>

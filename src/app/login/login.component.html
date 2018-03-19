@@ -1,47 +1,9 @@
-<section class="form-u indigo darken-4" *ngIf="!loggedIn">
-	<div class="formBox z-depth-3 indigo darken-2">
-		<h4 class="center-align">
-			Iniciar Sesión
-		</h4>
-		<div class="input-field col s12">
-			<input id="email" type="email" class="validate" placeholder="Ingresa tu Email" [(ngModel)]="loginParams.email">
-			<label for="email">Email</label>
-		</div>
-		<div class="input-field col s12">
-			<input id="password" type="password" class="validate" placeholder="Ingresa tu Contraseña" [(ngModel)]="loginParams.password">
-			<label for="password">Contraseña</label>
-		</div>
-		<div class="col s12">
-			<button class="btn indigo accent-3" (click)="login()">Entrar</button>
-		</div>
+<section class="login">
+	<div class="login-pic">
+		<img src="./assets/login.jpg" alt="Login">
 	</div>
-</section>
-
-<section class="home indigo darken-4" *ngIf="loggedIn">
-	<div class="row">
-		<div class="col s12 m4">
-			<div class="boxItem z-depth-3 indigo darken-2">
-				<a class="btn-floating btn-large waves-effect waves-light indigo lighten-3" routerLink="/crear/new">
-					<i class="large material-icons">add</i>
-				</a>
-				<h4>Crear un curso</h4>
-			</div>
-		</div>
-		<div class="col s12 m4">
-			<div class="boxItem z-depth-3 indigo darken-2">
-				<a class="btn-floating btn-large waves-effect waves-light indigo lighten-3" routerLink="/cursos">
-					<i class="large material-icons">art_track</i>
-				</a>
-				<h4>Ver Cursos</h4>
-			</div>
-		</div>
-		<div class="col s12 m4">
-			<div class="boxItem z-depth-3 indigo darken-2">
-				<a class="btn-floating btn-large waves-effect waves-light indigo lighten-3" routerLink="/singin">
-					<i class="large material-icons">supervisor_account</i>
-				</a>
-				<h4>Crear nuevo usuario</h4>
-			</div>
-		</div>
+	<div class="login-methods">
+		<h1>Incia seción</h1>
+		<button class="btn indigo accent-3" (click)="facebookLogin()">Login Con Facebook</button>
 	</div>
 </section>

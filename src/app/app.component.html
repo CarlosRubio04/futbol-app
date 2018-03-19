@@ -1,17 +1,49 @@
-<nav class="indigo darken-3 z-depth-4">
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo center">Universidad Javeriana</a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down" *ngIf="loggedIn">
-      <li><a routerLink="/">Inicio</a></li>
-      <li><a routerLink="crear/new">Crear Nuevo</a></li>
-    </ul>
-    <ul id="nav-mobile" class="right hide-on-med-and-down" *ngIf="loggedIn">
-      <li><a>{{loggedUser}}</a></li>
-      <li><a (click)="loggout()">Salir</a></li>
-    </ul>
-  </div>
-</nav>
+<div class="navbar-fixed">
+  <nav class="nav">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Futbol App</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="jugar">Jugar</a></li>
+        <li><a routerLink="#">Premios</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right hide-on-med-and-down" *ngIf="!loggedIn">
+        <li><a routerLink="login">Login</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right hide-on-med-and-down" *ngIf="loggedIn">
+        <li><a>{{loggedUser}}</a></li>
+        <li><a routerLink="perfil"><img src="{{ loggedUserPic }}" alt="Profile Picture" class="Profile-pic"></a></li>
+        <li><a (click)="loggout()">Salir</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
 <router-outlet></router-outlet>
+
+<footer class="page-footer">
+  <div class="">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Futbol App</h5>
+        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Menu</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Inicio</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Jugar</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Premios</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Perfil</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="row">
+      <a class="grey-text text-lighten-4 right" href="#!">Términos y Condiciones</a>
+    </div>
+  </div>
+</footer>
 
 

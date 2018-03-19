@@ -1,0 +1,61 @@
+@import './variables';
+@import './mixins';
+
+body {
+	font-family: 'Poppins', sans-serif;
+	color: $black;
+	font-weight: 300;
+	font-size: 14px;
+}
+.Hero {
+	height: 400px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba($dark-blue, .50);
+	background-image: url(../assets/hero.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-blend-mode: color;
+
+	&Cont {
+		max-width: 400px;
+		margin-left: 1em;
+		text-align: center;
+
+		h1 {
+			color: $white;
+			font-weight: 600;
+			font-size: 25px;
+		}
+		p {
+			color: $dark-blue;
+		}
+	}
+}
+
+.btn {
+	border-radius: 20px;
+}
+.btn .blue {
+	background-color: $ligth-blue;
+}
+.img-fluid {
+	max-width: 100%;
+	position: relative;
+	display: block;
+}
+.tittle {
+	font-size: 25px;
+	font-weight: 600;
+	margin: 2em 0;
+
+	&:after {
+		content: "";
+		display: block;
+		width: 80px;
+		border-top: 2px solid $ligth-blue;
+		margin-top: 1em;
+	}
+}

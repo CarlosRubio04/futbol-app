@@ -1,0 +1,52 @@
+@import '~sass/variables';
+
+.Hero-profile {
+	height: 400px;
+	width: 100%;
+	background-color: rgba($dark-blue, .50);
+	background-image: url(../../assets/hero.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-blend-mode: color;
+}
+.profile {
+	background-color: $white;
+	border-radius: 10px;
+	padding: 2em 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+	position: absolute;
+	top: 200px;
+	left: 1em;
+
+	&-pic {
+		img {
+			border-radius: 50%;
+		}
+		
+	}
+	&-info {
+		
+	}
+	small {
+		position: absolute;
+		top: -10px;
+		left: 10px;
+		color: $green;
+	}
+	.userName {
+		text-align: center;
+		color: $dark-blue;
+		font-weight: 600;
+		font-size: 18px;
+	}
+	.item {
+		color: $ligth-blue;
+		font-weight: 400px;
+		font-size: 14px;
+		position: relative;
+	}
+}

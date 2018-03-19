@@ -4,7 +4,7 @@ import { AutorizacionService } from '../services/autorizacion.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
 	loginParams:any = {};
@@ -18,7 +18,7 @@ export class LoginComponent {
           this.loggedIn = true;
           setTimeout(()=> {
             this.loggedUser = this.autorizacionService.getUser().currentUser.email;
-            // console.log(this.loggedUser);
+            console.log(this.loggedUser);
           }, 500);
         }else {
           this.loggedIn = false;
@@ -31,5 +31,8 @@ export class LoginComponent {
 
   login() {
   	this.autorizacionService.login(this.loginParams.email, this.loginParams.password);
+  }
+  facebookLogin(){
+    this.autorizacionService.facebookLogin();
   }
 }

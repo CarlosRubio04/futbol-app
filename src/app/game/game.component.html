@@ -1,0 +1,35 @@
+<section class="Hero">
+	<div class="HeroCont">
+		<div class="cta-login">
+			<h1>Liga Profecional <br/> Colombiana</h1>
+		</div>
+	</div>
+</section>
+
+
+<section class="games">
+	<div class="row">
+		<div class="col m12">
+			<h2 class="tittle">
+				Apoya a tus equipos favoritos y preparate a ganar
+			</h2>
+		</div>
+	</div>
+	<div class="row-games">
+		<ng-container *ngFor="let game of games">
+			<div class="game z-depth-2">
+				<div class="team">
+					<img src="http://via.placeholder.com/100x100" alt="match">
+					<h1>{{ game.localTeam }}</h1>
+				</div>
+				<div class="versus">
+					<h2>VS</h2>
+				</div>
+				<div class="team">
+					<img src="http://via.placeholder.com/100x100" alt="match">
+					<h1>{{ game.visitTeam }}</h1>
+				</div>
+			</div>
+		</ng-container>
+	</div>
+</section>
